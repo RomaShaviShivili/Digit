@@ -1,0 +1,332 @@
+/* DIGIT - Modernist Minimal & Clean Typography Design System */
+
+:root {
+  /* Colors */
+  --bg-main: #ffffff;
+  --bg-card: #f8fafc;
+  --border-color: #e2e8f0;
+  --border-dark: #0f172a;
+  
+  --primary: #000000;       /* High-contrast Black */
+  --accent: #4f46e5;        /* Indigo accent */
+  --accent-light: #e0e7ff;
+  
+  --text-main: #0f172a;     /* Deep Slate */
+  --text-muted: #475569;    /* Slate Gray */
+  
+  /* UI States */
+  --status-pending: #d97706;
+  --status-assigned: #2563eb;
+  --status-progress: #7c3aed;
+  --status-completed: #db2777;
+  --status-approved: #059669;
+  
+  /* Typography */
+  --font-sans: 'Montserrat', sans-serif;
+  
+  /* Shadows */
+  --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-main);
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Typography Utilities */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  color: var(--text-main);
+}
+
+.label-caps {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+}
+
+/* Layout and Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Modernist Divider Columns (Inspired by Nonsense layout) */
+.nonsense-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+  margin: 4rem 0;
+}
+
+@media (min-width: 768px) {
+  .nonsense-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.nonsense-col {
+  padding: 4rem 2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  .nonsense-col {
+    border-right: 1px solid var(--border-color);
+  }
+  .nonsense-col:last-child {
+    border-right: none;
+  }
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.75rem;
+  border-radius: 0; /* Modernist sharp corners */
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 2px solid var(--primary);
+  text-decoration: none;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #1e293b;
+  border-color: #1e293b;
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--primary);
+}
+
+.btn-secondary:hover {
+  background: #f1f5f9;
+  transform: translateY(-1px);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--accent);
+  border: 2px solid var(--accent);
+}
+
+.btn-outline:hover {
+  background: var(--accent-light);
+  transform: translateY(-1px);
+}
+
+/* Cards (Modern Minimalist boxes) */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 0; /* Minimalist sharp edges */
+  padding: 2rem;
+  transition: all 0.2s ease;
+}
+
+.card:hover {
+  border-color: var(--border-dark);
+}
+
+/* Badges for status */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.75rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: 1.5px solid var(--primary);
+  border-radius: 0;
+}
+
+.badge-pending {
+  background: #fffbeb;
+  color: var(--status-pending);
+  border-color: var(--status-pending);
+}
+
+.badge-assigned {
+  background: #eff6ff;
+  color: var(--status-assigned);
+  border-color: var(--status-assigned);
+}
+
+.badge-progress {
+  background: #f5f3ff;
+  color: var(--status-progress);
+  border-color: var(--status-progress);
+}
+
+.badge-completed {
+  background: #fdf2f8;
+  color: var(--status-completed);
+  border-color: var(--status-completed);
+}
+
+.badge-approved {
+  background: #ecfdf5;
+  color: var(--status-approved);
+  border-color: var(--status-approved);
+}
+
+/* Forms & Inputs */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+  color: var(--text-muted);
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: 0;
+  color: var(--text-main);
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  transition: all 0.15s ease;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--border-dark);
+}
+
+textarea.form-control {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* Dashboards common layouts */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+}
+
+@media (min-width: 768px) {
+  .dashboard-grid-split {
+    grid-template-columns: 2.2fr 1fr;
+  }
+}
+
+.section-title {
+  font-size: 1.35rem;
+  margin-bottom: 2rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--primary);
+  display: inline-block;
+  text-transform: uppercase;
+}
+
+/* Task Item */
+.task-item {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.task-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+.task-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.task-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.task-price {
+  font-weight: 800;
+  color: var(--primary);
+  font-size: 1.15rem;
+}
+
+/* Illustration Styles */
+.illustration-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+  background: #f8fafc;
+  border: 1px solid var(--border-color);
+  margin-bottom: 1.5rem;
+  width: 100%;
+}
